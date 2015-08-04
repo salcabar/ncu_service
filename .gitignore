@@ -1,0 +1,5 @@
+.tmp
+.sass-cache
+app/components
+test/components
+.fetchtemp

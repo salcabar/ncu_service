@@ -1,0 +1,665 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- <link rel="stylesheet" type="text/css" href="http://172.30.23.70/project/ymer_editor_UI_source/css/home.css"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="http://y0.ifengimg.com/fe/ymer_project/styles/home_41e54898.css"> -->
+        <style type="text/css">
+
+        </style>
+        <style type="text/css">
+
+            .mod-middleTabCon .proBox .fontWeight{
+                background-image: url(http://y0.ifengimg.com/fe/ymer_project/images/text_be976c6e.png);
+                background-position: 0 0;
+                width: 16px;
+                height: 16px;
+                margin-top: 2px;
+            }
+
+            .mod-middleTabCon .proBox .fontWeight_change{
+                background-image: url(http://y0.ifengimg.com/fe/ymer_project/images/text_be976c6e.png);
+                background-position: -50px 0;
+                width: 16px;
+                height: 16px;
+                margin-top: 2px;
+            }
+
+            .mod-middleTabCon .proBox .fontStyle{
+                background-image: url(http://y0.ifengimg.com/fe/ymer_project/images/text_be976c6e.png);
+                background-position: -17px 0;
+                width: 16px;
+                height: 16px;           
+                margin-top: 2px;
+            }
+
+            .mod-middleTabCon .proBox .fontStyle_change{
+                background-image: url(http://y0.ifengimg.com/fe/ymer_project/images/text_be976c6e.png);
+                background-position: -67px 0;
+                width: 16px;
+                height: 16px;           
+                margin-top: 2px;
+            }
+
+            .mod-middleTabCon .proBox .decoration{
+                background-image: url(http://y0.ifengimg.com/fe/ymer_project/images/text_be976c6e.png);
+                background-position: -34px 0;
+                width: 16px;
+                height: 16px;
+                margin-top: 2px;
+            }
+
+            .mod-middleTabCon .proBox .decoration_change{
+                background-image: url(http://y0.ifengimg.com/fe/ymer_project/images/text_be976c6e.png);
+                background-position: -84px 0;
+                width: 16px;
+                height: 16px;
+                margin-top: 2px;
+            }
+
+        </style>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.1/themes/black-tie/jquery-ui.css" />
+        <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"/>
+
+        <script src="http://y0.ifengimg.com/fe/ymer_project/scripts/base-core_5664eba4.min.js"></script>
+
+        <link rel="stylesheet" href="http://y0.ifengimg.com/fe/ymer_project/styles/ymer_project_depmodules_dc44929d.min.css">
+
+        <link rel="stylesheet" href="http://y0.ifengimg.com/fe/ymer_project/styles/ymer_project_main_c494e913.min.css">
+
+    </head>
+    <body>
+
+        <script>
+           requirejs.config({
+             paths:{
+              "jquery#1.8.1" : "http://y1.ifengimg.com/fe/jQuery/jquery-1.8.1.min",
+              "artTemplate#3.0.3" : "http://y0.ifengimg.com/fe/ymer_project/scripts/ymer_project_depmodules_dc44929d.min",
+              "Ymer" : "http://y0.ifengimg.com/fe/ymer_project/scripts/ymer_project_depmodules_dc44929d.min",
+              "ymer_editor_timeline" : "http://y0.ifengimg.com/fe/ymer_project/scripts/ymer_project_depmodules_dc44929d.min",
+              "ymer_editor_properties" : "http://y0.ifengimg.com/fe/ymer_project/scripts/ymer_project_depmodules_dc44929d.min",
+              "ymer_editor_tools" : "http://y0.ifengimg.com/fe/ymer_project/scripts/ymer_project_depmodules_dc44929d.min",
+              "ymer_editor_canvas" : "http://y0.ifengimg.com/fe/ymer_project/scripts/ymer_project_depmodules_dc44929d.min"
+
+             },
+             waitSeconds: 20,shim: {}});
+        </script>
+
+        <script type="text/javascript">
+        requirejs.config({
+            paths:{
+                "jquery.ui.widget" : "http://y0.ifengimg.com/fe/ymer_project/scripts/jquery.ui.widget_f72b267b",
+                "jquery.iframe-transport" : "http://y0.ifengimg.com/fe/ymer_project/scripts/jquery.iframe-transport_ceee1f09",
+                "jquery.fileupload" : "http://y0.ifengimg.com/fe/ymer_project/scripts/jquery.fileupload_fc4512d1",
+                "jquery-ui#1.8.1" : "http://code.jquery.com/ui/1.8.1/jquery-ui.min"
+            },
+            waitSeconds: 20,shim: {}})
+
+        glue.clearMessage = function(){
+            var messages = this.getMessage();
+            if(typeof messages !== 'undefined') {
+                for(var p in messages){
+                    delete messages[p];
+                }
+            }
+
+            var events = this.getObserver();
+            events.__events = {};
+        }
+
+        </script>
+
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/ImageComponentEditor_e78fe149.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/TextComponentEditor_487fd949.js"></script>
+
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/ImageEditorDefinition_e9a96290.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/TextEditorDefinition_8a67913a.js"></script>
+
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/AppDefinition_988f1951.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/SceneDefinition_a0ab8f1c.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/TimelineContainerDefinition_be35c747.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/ImageComponentDefinition_dbe6df55.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/TextComponentDefinition_5cc4c9e7.js"></script>
+
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/UploadFileProperty_28696733.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/RangeProperty_6864bfcb.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/ColorProperty_76e872e7.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/StringProperty_40cdf9d8.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/NumberProperty_67a38907.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/SelectProperty_5cd6c3ca.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/IconProperty_22dd08d7.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/TimelineProperty_ff233ac0.js"></script>
+        <script type="text/javascript" src="http://y0.ifengimg.com/fe/ymer_project/scripts/DeviceInfoProperty_8f8aa5e6.js"></script>
+
+        <script src="http://y0.ifengimg.com/fe/ymer_project/scripts/ymer_project_extend_a2387861.min.js"></script>
+
+        <div class="mod-fixed mod-topBar clearfix">
+            <div class="right-bar">
+                <a class="js_upload_project mod-btn-grn-m" href="##">保存</a>
+                <!-- <a class="mod-btn-grn-m" href="##">发布</a> -->
+                <a class="js_preview mod-btn-grn-m" href="##">预览</a>
+            </div>
+            <div class="left-menu">
+                <a class="js_new_project mod-btn-grn-s" href="##">新建</a>
+                <a class="js_open_project mod-btn-grn-s" href="##">打开</a>
+                <!-- <select class="mod-select-m" name="" id="" style="display:none">
+                    <option value="PC">PC</option>
+                    <option value="PC">PAD</option>
+                    <option value="PC">PHONE</option>
+                </select> -->
+            </div>
+
+        </div>
+
+        <div id="tools" class="mod-fixed mod-elementsPanel" style="bottom:280px"></div>
+        <div class="mod-fixed mod-display" style="bottom:280px">
+            <div class="wrap" style="display: block;">
+                <!--去掉ruler时  去掉整个rulerCon-->
+                <div class="rulerCon">
+                    <div class="ruler rulerTop"></div>
+                    <div class="ruler rulerLeft"></div>
+                </div>
+                <div id="container" class="content"></div>
+            </div>
+        </div>
+        <div id="rightCon" style="height:800px;width:300px;float:right"></div>
+        <div id="timeline"  class="mod-fixed mod-timeLine" style="height:260px"></div>
+        <div id="mask">
+            <div class="title">请填写项目信息</div>
+            <label for="name">项目名称：</label><input type="text"  id="name" class="js_mask_name" placeholder="请输入项目名称"/>
+            <label for="descr">项目描述：</label><input type="text" id="descr" class="js_mask_descr" placeholder="请输入项目描述"/>
+            <div class="js_mask_confirm mask_btn">确定</div>
+            <div class="js_mask_cancel mask_btn">取消</div>
+        </div>
+        <style type="text/css">
+            #mask{
+                display: none;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-top: -130px;
+                margin-left: -200px;
+                width: 400px;
+                height: 260px;
+                z-index: 100;
+                text-align: center;
+                background: #ececec;
+                border: 1px solid #e1e1e1;
+                -webkit-box-shadow: 0px 0px 8px #444;
+                -webkit-animation: twinkling 1s 1 ease-in-out;
+            }
+
+            #mask .title{
+                margin: 10px 0 20px 0;
+                font-size: 35px;
+                color: #445668;
+                text-align: center;
+                text-shadow: 0px 1px 0px #f2f2f2;
+            }
+
+            #mask label{
+                float: left;
+                clear: left;
+                margin: 11px 20px 0 0;
+                width: 95px;
+                text-align: right;
+                font-size: 16px;
+                color: #445668;
+                text-shadow: 0px 1px 0px #f2f2f2;
+            }
+
+            #mask input{
+                width: 260px;
+                height: 35px;
+                margin: 0 0 20px -25px;
+                background: #2b2b2b;
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -webkit-box-shadow: 0px 1px 0px #f2f2f2;
+                font-family: sans-serif;
+                font-size: 16px;
+                color: #f2f2f2;
+                text-shadow: 0px -1px 0px #334f71;
+            }
+
+            #mask .mask_btn{
+                margin: 10px 30px;
+                border: 1px solid black;
+                font-size: 20px;
+                display: inline-block;
+                width: 80px;
+                height: 30px;
+            }
+
+            @-webkit-keyframes twinkling{   /*透明度由0到1*/
+                0%{
+                    opacity:0;              /*透明度为0*/
+                }
+                100%{
+                    opacity:1;              /*透明度为1*/
+                }
+            }
+        </style>
+
+        <div id="open_project" class="items_container">
+            <div class="js_close btn_close">   
+                <i class="fa fa-times"></i>
+            </div>
+            <p class="title">请选择场景或添加新的场景</p>
+            <div class="content"></div>
+        </div>
+        <style>
+            .items_container{
+                display: none;
+                position: absolute;
+                width: 460px;
+                height: 590px;
+                left: 50%;
+                top: 50%;
+                margin-left: -230px;
+                margin-top: -270px;
+                z-index: 100;
+                background: #f0f0f0;
+                border: 5px solid black;
+            }
+
+            .items_container .btn_close{
+                position: absolute;
+                top: -25px;
+                right: -20px;
+                font-size:1.8em;
+            }
+
+            .items_container .btn_close:hover{
+                cursor: pointer;
+            }
+
+            .items_container >.title{
+                margin: 10px auto 0px;
+              width: 440px;
+              height: 40px;
+              line-height: 40px;
+              background-color: white;
+              font-size: 20px;
+              text-align: center;
+              box-shadow: 0 2px 3px rgba(0,0,0,.3);
+            }
+
+            .items_container .content{
+                padding: 0 5px;
+                width: 100%;
+            }
+
+            .items_container ul{
+                height: 100%;
+            }
+
+            .items_container li{
+                text-align: center;
+                background: #bdd5ef;
+                margin:10px 5px 0;
+                float: left;
+                width: 140px;
+                height:122px;
+                box-shadow: 0 2px 3px rgba(0,0,0,.3);
+            }
+
+            .items_container li p{
+                margin-bottom: 0;
+              text-align: left;
+              height: 40px;
+              line-height: 40px;
+              text-indent: 10px;
+              font-size: 14px;
+              background: #FFF;
+              border-bottom: 1px solid #E7E7E7;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+
+            .items_container li p:last-child{
+              border-bottom: 0px;
+            }
+
+            .items_container li .mask_layer{
+                position: absolute;
+                width:140px;
+                height: 122px;
+                background: #2b2b2b;
+                opacity: 0.5;
+                display: none;
+            }
+
+            .items_container li:nth-child(3n+3){
+                margin-right: 0px;
+            }
+
+            .items_container li.current{
+                background: black;
+                opacity: 0.5;
+            }
+
+            .items_container div.fa-plus{
+                color: #fff;
+                font-size: 80px;
+                line-height: 122px;
+            }
+
+            .items_container li:hover{
+                cursor: pointer;
+            }
+
+            .items_container div.fa-plus::before{
+                  content: "\f067";
+            }
+
+        </style>
+
+        <!-- 以标签方式注册一个组件 -->
+        <!--
+        <div g-cid="widgetId" g-cname="ymer_project" g-depId="" g-priority="1" g-option"{'model.propertyName': '@@outModel.propertyName'}"></div>
+        -->
+        <script>
+            // 以命令行方式注册一个组件
+            // glue.widgetRegist('srcNode', 'widgetId', 'ymer_project', 'depWidgetId', 'priority', {
+            //   'model.propertyName': '@@outModel.propertyName'
+            // });
+
+            require(['ymer_editor_canvas', 'jquery#1.8.1', 'Ymer', 'ymer_editor_timeline', 'ymer_editor_properties', 'ymer_editor_tools','ymer_project/template'], 
+                function(ymer_editor_canvas, $, ymer, ymer_editor_timeline, ymer_editor_properties, ymer_editor_tools, template) {
+                    var app = null,
+                        ymer_tools = null,
+                        ymer_canvas = null,
+                        ymer_properties = null,
+                        ymer_timeline = null;
+
+                    var ymerInit = function () {
+                        glue.clearMessage();
+                        // app = new ymer.App(1, ymer.PropertyFactory, ymer.ComponentFactory);
+                        // app.setDeviceInfo({width:275,height:567});
+                        // app.setMode('edit');
+                        console.log(app)
+
+                        AnimationSchedule.start();
+
+                        ymer_tools = new ymer_editor_tools(glue).create(document.getElementById('tools'), {'componentDefinition':ymer.CompDefinitionFactory.getDefinitions()});
+
+                        ymer_canvas = new ymer_editor_canvas.canvas(glue).create(document.getElementById('container'), {'context':app,'parent':app,'app':app});
+
+                        ymer_properties = new ymer_editor_properties(glue).create(document.getElementById('rightCon'), {app:app,context:app});
+
+                        ymer_timeline = new ymer_editor_timeline(glue).create(document.getElementById('timeline'), {timelineContainer:null,context:app});
+                        resizeTimeline();
+
+                    }
+
+                    var ymerDestroy = function () {
+                        $('#tools').empty();
+                        $('#container').empty();
+                        $('#rightCon').empty();
+                        $('#timeline').empty();
+
+                        app = null;
+                        ymer_tools = null;
+                        ymer_canvas = null;
+                        ymer_properties = null;
+                        ymer_timeline = null;
+
+                    }
+                    app = new ymer.App(1, ymer.PropertyFactory, ymer.ComponentFactory);
+                    app.setDeviceInfo({width:275,height:567});
+                    app.setMode('edit');
+                    ymerInit();
+
+                   function resizeTimeline(){
+                        var width = $('#timeline').width();
+                        var height = $('#timeline').height();
+                        if(!ymer_timeline) return;
+                        ymer_timeline.resize(width ,height);
+                   }
+
+                    //时间轴伸缩
+                    $(window).resize(function(){
+                        resizeTimeline();
+                    });
+                    resizeTimeline();
+
+                    //服务器地址
+                    var URL = 'http://172.30.23.87:3000';
+
+                    //预览页面
+                    $(".js_preview").click(function () {
+                        console.log(app.getId())
+                        window.open(URL + '/preview/' + app.getuuid());
+                    })
+
+                    var $openProDom = $('#open_project');
+                    var $newMaskDom = $('#mask');
+
+                    //新建项目按钮
+                    $(".js_new_project").click(function () {
+                        $newMaskDom.show();
+                    })
+
+                    //打开项目按钮
+                    $(".js_open_project").click(function () {
+                        if($openDom.css('display') == 'block') {
+                            return false;
+                        }
+
+                        $openDom.show();
+                        $.ajax({
+                            url: URL + '/pages',
+                            type: 'get',
+                            dataType: 'json'
+                        })
+                        .done(function(msg) {
+                            console.log(msg)
+                            var dom = $(template.items({'data':msg.data},'dateFormat'));
+                            $openDom.find('.content').append(dom);
+                        })
+
+                    })
+
+                    template.helper('dateFormat', function (date, format) {
+
+                        date = new Date(date);
+
+                        var map = {
+                            "M": date.getMonth() + 1, //月份 
+                            "d": date.getDate(), //日 
+                            "h": date.getHours(), //小时 
+                            "m": date.getMinutes(), //分 
+                            "s": date.getSeconds(), //秒 
+                            "q": Math.floor((date.getMonth() + 3) / 3), //季度 
+                            "S": date.getMilliseconds() //毫秒 
+                        };
+                        format = format.replace(/([yMdhmsqS])+/g, function(all, t){
+                            var v = map[t];
+                            if(v !== undefined){
+                                if(all.length > 1){
+                                    v = '0' + v;
+                                    v = v.substr(v.length-2);
+                                }
+                                return v;
+                            }
+                            else if(t === 'y'){
+                                return (date.getFullYear() + '').substr(4 - all.length);
+                            }
+                            return all;
+                        });
+                        return format;
+                    });
+
+                    //创建,取消  项目
+                    $newMaskDom.on('click', '.js_mask_confirm', function() {
+                        var appName = $('#mask .js_mask_name').val();
+                        var appDescr = $('#mask .js_mask_descr').val();
+                        if(appName == '') {
+                            alert('名称不能为空');
+                        } else {
+
+                            $.ajax({
+                                url:URL + '/pages',
+                                type:'POST',
+                                data:{
+                                    "title":appName,
+                                    "descr":appDescr
+                                },
+                                dataType:'json'
+                            })
+                            .done(function(msg){
+                                console.log(msg)
+                                if(msg.code == '1' && msg.data) {
+
+                                    $('#mask .js_mask_name').val('');
+                                    $('#mask .js_mask_descr').val('');
+
+                                    console.log(msg.data.id)
+                                    ymerDestroy();
+
+                                    app = new ymer.App(msg.data.id, ymer.PropertyFactory, ymer.ComponentFactory);
+                                    app.setDeviceInfo({width:275,height:567});
+                                    app.setMode('edit');
+
+                                    app.initAppData({id:msg.data.id,name:appName,properties:{} ,scenes:[],events:[],components:[],effects:[],timelineContainers:[]});
+                                    ymerInit();
+
+                                    $newMaskDom.hide();
+                                }
+                            })
+                            .fail(function(msg){
+                                console.log('新建失败------',msg);
+                                alert('新建失败，请重新创建');
+                            })
+
+                        }
+
+                        return false;
+
+                    }).on('click', '.js_mask_cancel', function() {
+
+                        $('#mask .js_mask_name').val('');
+                        $('#mask .js_mask_descr').val('');
+                        $('#mask').hide();
+
+                        return false;
+
+                    })
+
+                    var $openDom = $('#open_project');
+
+                    //打开项目
+                    $openDom.on('click' , '.js_close', function(event) {
+                        $openDom.hide();
+                        $openDom.find('.content').empty();
+                        return false;
+                    }).on('mouseover' , 'li', function(event) {
+                        $(this).find('.mask_layer').show();
+                    }).on('mouseout' , 'li', function(event) {
+                        $(this).find('.mask_layer').hide();
+                    }).on('dblclick', 'li', function(event){
+                        var id = $(this).attr('data-id');
+                        console.log(id)
+                        if(id == null){
+                            return false;
+                        }
+
+                        if(id == 'new_project') {
+                            $openDom.hide();
+                            $openDom.find('.content').empty();
+                            $('#mask').show();
+                            return false;
+                        }
+
+                        $.ajax({
+                            url: URL + '/pages/' + id,
+                            type: 'get',
+                            dataType: 'json',
+                        })
+                        .done(function(msg){
+                            console.log(msg);
+                            if(msg.code == 1 ) {
+                                $openDom.hide();
+                                $openDom.find('.content').empty();
+                                console.log(1)
+                                ymerDestroy();
+
+                                app = new ymer.App(msg.data.uid, ymer.PropertyFactory, ymer.ComponentFactory);
+                                app.setDeviceInfo({width:275,height:567});
+                                app.setMode('edit');
+                                if(msg.data && msg.data.content) {
+                                    app.initAppData(JSON.parse(msg.data.content))
+                                } else {
+                                    console.log(msg.data.uid)
+                                    app.initAppData({id:msg.data.uid,properties:{} ,scenes:[],events:[],components:[],effects:[],timelineContainers:[]})
+                                }
+                                ymerInit();
+
+                                $('#open_project').hide();
+                            }
+                        })
+                        .fail(function(msg){
+                            console.log('打开项目失败------',msg);
+                            alert('打开项目失败，请重新操作')
+                        })
+                    })
+
+                    //数据上传
+                    var dataUpload = function () {
+                        console.log(app.getId())
+                        var option = {
+                            'id':app.getId(),
+                            'content':JSON.stringify(app.getData())
+                        };
+
+                        $.ajax({
+                            url: URL + '/pages',
+                            type: 'put',
+                            data: option,
+                            dataType: 'json'
+                        })
+                        .done(function(msg) {
+                            console.log(msg);
+
+                            if(msg.code == 1) {
+                                console.log('保存成功');
+                                alert('保存成功');
+                            } else {
+                                console.log('保存项目失败------',msg);
+                                alert('保存项目失败，请重新操作')
+                            }
+
+                        })
+                        .fail(function(msg){
+                            console.log('保存项目失败------',msg);
+                            alert('保存项目失败，请重新操作')
+                        })
+                    }
+
+                    // setInterval(function(){
+                    //     if(app.getId() && app.getName()){
+                    //         console.log('保存数据')
+                    //         dataUpload();
+                    //     } 
+                    // },30 * 1000)
+                    $('.js_upload_project').click(function() {
+                        dataUpload();
+                    });
+
+            });
+
+            // 扫描组件
+            // glue.scan();
+            // 运行组件
+            // glue.run();
+        </script>
+
+    </body>
+</html>
