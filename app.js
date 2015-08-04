@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var preview =  require('./routes/preview');
 var pages =  require('./routes/pages');
+var message =  require('./routes/message');
 
 var app = express();
 
@@ -31,14 +32,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/preview' , preview)
+app.use('/preview' , preview);
 app.use('/pages' , pages);
+app.use('/message' , message);
 
 app.use('/' , function(req, res, next){
    console.log('11111111111')
    //res.end('ok')
-   res.render("index",{});
+   res.render("message",{});
 });
+
+
+// app.use('/message' , function(req, res, next){
+//    console.log('11111111111')
+//    //res.end('ok')
+//    res.render("message",{});
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

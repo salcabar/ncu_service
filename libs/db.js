@@ -8,19 +8,19 @@ var  Q = require('q')
 
 
 var connection = mysql.createConnection({
-  host     : '55bf815364461.sh.cdb.myqcloud.com',
+  host     : '55c0c57423304.sh.cdb.myqcloud.com',
   user     : 'cdb_outerroot',
   password : 'xzw199228',
-  port : 5386
+  port : 4124
 });
 
 
 var pool  = mysql.createPool({
-      host     : '55bf815364461.sh.cdb.myqcloud.com',
+      host     : '55c0c57423304.sh.cdb.myqcloud.com',
       user     : 'cdb_outerroot',
       password : 'xzw199228',
       database : 'ncu',
-      port     : '5386'
+      port     : '4124'
 });
 
 //console.log('pool' , pool);
