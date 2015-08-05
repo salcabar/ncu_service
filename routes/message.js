@@ -55,7 +55,7 @@ router.post('/', function(req, res, next){
         name : req.body.name,
         grade : req.body.grade || '',
         college : req.body.college || '',
-        Major : req.body.major || '',
+        major : req.body.major || '',
         company : req.body.company || '',
         job : req.body.job || '',
         phone : req.body.phone || '',
@@ -66,6 +66,7 @@ router.post('/', function(req, res, next){
         address : req.body.address || '',
         club : req.body.club || ''
     }
+
     var promise = messageMgr.createMailList(obj);
     promise.then(function(){
         res.json(utils.wrapResponse(1,null,'成功'))

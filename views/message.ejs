@@ -3,13 +3,13 @@
 <html>
 <head lang="en">
 	<meta charset="UTF-8">
-	<title>Login Page | Amaze UI Example</title>
+	<title>南昌大学北京校友会通讯录收集工具</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="Cache-Control" content="no-siteapp" />
-	<link rel="alternate icon" type="image/png" href="/i/favicon.png">
+	<link rel="alternate icon" type="image/png" href="http://y1.ifengimg.com/a/2015/0805/edf094fcf088566size22_w75_h74.png">
 	<link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css"/>
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<style>
@@ -37,10 +37,10 @@
 	<div class="am-g">
 		<div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
 			<form method="post" class="am-form">
-				<label for="name">姓名:</label>
+				<label for="name">姓名(必填):</label>
 				<input type="text" name="name" id="name" value="">
 				<br>
-				<label for="grade">入学年份:</label>
+				<label for="grade">入学年份(必填):</label>
 			    <select class=" am-input-sm" name="grade" id="grade">
 			    	<option value="请选择">请选择</option>
 					<option value="1990">1990</option>
@@ -70,7 +70,7 @@
 					<option value="2014">2014</option>
 			    </select>
 				<br>
-				<label for="college">学院:</label>
+				<label for="college">学院(必填):</label>
 			    <select class=" am-input-sm" name="college" id="college">
 			    	<option value="请选择">请选择</option>
 					<option value="人文学院">人文学院</option>
@@ -105,6 +105,7 @@
 					<option value="玛丽女王学院">玛丽女王学院</option>
 					<option value="医学实验教学中心">医学实验教学中心</option>
 					<option value="实验动物科学中心">实验动物科学中心</option>
+					<option value="人武学院">人武学院</option>
 					<option value="科学技术学院">科学技术学院</option>
 					<option value="共青学院">共青学院</option>
 					<option value="抚州医学院">抚州医学院</option>
@@ -119,10 +120,10 @@
 				<label for="company">公司:</label>
 				<input type="text" name="company" id="company" value="">
 				<br>
-				<label for="job">职位:</label>
+				<label for="job">职业(必填):</label>
 				<input type="text" name="job" id="job" value="">
 				<br>
-				<label for="phone">联系方式:</label>
+				<label for="phone">联系方式(必填):</label>
 				<input type="tel"  maxlength="11" name="phone" id="phone" value="">
 				<br>
 				<label for="weixin">微信账号:</label>
@@ -134,7 +135,7 @@
 				<label for="city">城市:</label>
 				<input type="text" name="city" id="city" value="北京" readonly="readonly">
 				<br>
-				<label for="district">所在区:</label>
+				<label for="district">所在区(必填):</label>
 				<select class=" am-input-sm" name="district" id="district">
 			    	<option value="请选择">请选择</option>
 					<option value="东城区">东城区</option>
@@ -157,11 +158,6 @@
 				<label for="address">附近地铁站或者小区名称:</label>
 				<input type="text" name="address" id="address" value="">
 				<br>
-
-<!-- 				<label for="remember-me">
-					<input id="remember-me" type="checkbox">记住密码</label>
-				<br /> -->
-
 			</form>
 
 			<div class="am-cf">
@@ -197,12 +193,31 @@
 
 			if(!name) {
 				alert('名字不能为空');
+				flag = true;
 				return ;
 			} else if(!grade || grade == '请选择') {
 				alert('入学年份未选择');
+				flag = true;
 				return ;
 			} else if(!college || college == '请选择') {
 				alert('学院未选择');
+				flag = true;
+				return ;
+			} else if(!job) {
+				alert('职业未填写');
+				flag = true;
+				return ;
+			} else if(!phone || isNaN(phone)) {
+				alert('联系方式填写有误，请输出数字');
+				flag = true;
+				return ;
+			} else if(qq && isNaN(qq)) {
+				alert('qq号请填写数字');
+				flag = true;
+				return ;
+			} else if(!district || district == '请选择') {
+				alert('所在区未选择');
+				flag = true;
 				return ;
 			}
 
@@ -213,7 +228,7 @@
 					name:name,
 					grade:parseInt(grade),
 					college:college,
-					Major:major,
+					major:major,
 					company:company,
 					job:job,
 					phone:parseInt(phone),
@@ -228,14 +243,14 @@
 			.done(function(msg){
 				if(msg.code == 1) {
 					alert('感谢您的配合和大力支持，希望北京校友会有您的加入会变得更加精彩');
-					flag = true;
 				} else {
 					alert('数据发送失败，请重新点击确认按钮');
 					flag = true;
 				}
 			})
 			.fail(function(msg){
-				alert('数据发送失败，请重新点击确认按钮')；
+				alert('数据发送失败，请重新点击确认按钮');
+				flag = true;
 			})
 		})
 	})

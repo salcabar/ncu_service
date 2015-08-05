@@ -37,7 +37,6 @@ app.use('/pages' , pages);
 app.use('/message' , message);
 
 app.use('/tool' , function(req, res, next){
-   console.log(req)
    //res.end('ok')
    res.render("index",{});
 });

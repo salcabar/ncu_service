@@ -133,7 +133,7 @@ function messageMgr(){
         var name = obj.name,
             grade = obj.grade,
             college = obj.college,
-            Major = obj.major,
+            major = obj.major,
             company = obj.company,
             job = obj.job,
             phone = obj.phone,
@@ -151,7 +151,7 @@ function messageMgr(){
         params.push(name);
         params.push(grade);
         params.push(college);
-        params.push(Major);
+        params.push(major);
         params.push(company);
         params.push(job);
         params.push(phone);
@@ -161,7 +161,6 @@ function messageMgr(){
         params.push(city);
         params.push(address);
         params.push(club);
-
         var promise = dao.insert(insertQuery , params);
         promise.then(function(msg){
             console.log(msg)
