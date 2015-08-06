@@ -10,9 +10,24 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
-  <link rel="alternate icon" type="image/png" href="/i/favicon.png">
-  <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css"/>
+  <link rel="alternate icon" type="image/png" href="http://y1.ifengimg.com/a/2015/0805/edf094fcf088566size22_w75_h74.png">
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css"/>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   <style>
+    html body {
+        height: 100%;
+        background: #1E5B94;
+    }
+
+    .logo {
+        display: block;
+        background-image: url(http://y1.ifengimg.com/a/2015/0805/edf094fcf088566size22_w75_h74.png);
+        background-size: cover;
+        width: 45px;
+        height: 45px;
+        margin-top: 3px;
+    }
+
     .get {
       background: #1E5B94;
       color: #fff;
@@ -31,59 +46,11 @@
       background: #fff;
     }
 
-    .detail {
-      background: #fff;
-    }
 
-    .detail-h2 {
-      text-align: center;
-      font-size: 150%;
-      margin: 40px 0;
-    }
-
-    .detail-h3 {
-      color: #1f8dd6;
-    }
-
-    .detail-p {
-      color: #7f8c8d;
-    }
-
-    .detail-mb {
-      margin-bottom: 30px;
-    }
-
-    .hope {
-      background: #0bb59b;
-      padding: 50px 0;
-    }
-
-    .hope-img {
-      text-align: center;
-    }
-
-    .hope-hr {
-      border-color: #149C88;
-    }
-
-    .hope-title {
-      font-size: 140%;
-    }
-
-    .about {
-      background: #fff;
-      padding: 40px 0;
-      color: #7f8c8d;
-    }
-
-    .about-color {
-      color: #34495e;
-    }
-
-    .about-title {
-      font-size: 180%;
-      padding: 30px 0 50px 0;
-      text-align: center;
+    .footer {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
     }
 
     .footer p {
@@ -99,7 +66,7 @@
 <header class="am-topbar am-topbar-fixed-top">
   <div class="am-container">
     <h1 class="am-topbar-brand">
-      <a href="#">Amaze UI</a>
+      <a href="#" class="logo"></a>
     </h1>
 
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"
@@ -109,19 +76,6 @@
     <div class="am-collapse am-topbar-collapse" id="collapse-head">
       <ul class="am-nav am-nav-pills am-topbar-nav">
         <li class="am-active"><a href="#">首页</a></li>
-        <li><a href="#">项目</a></li>
-        <li class="am-dropdown" data-am-dropdown>
-          <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-            下拉菜单 <span class="am-icon-caret-down"></span>
-          </a>
-          <ul class="am-dropdown-content">
-            <li class="am-dropdown-header">标题</li>
-            <li><a href="#">1. 默认样式</a></li>
-            <li><a href="#">2. 基础设置</a></li>
-            <li><a href="#">3. 文字排版</a></li>
-            <li><a href="#">4. 网格系统</a></li>
-          </ul>
-        </li>
       </ul>
 
       <div class="am-topbar-right">
@@ -138,22 +92,23 @@
 <div class="get">
   <div class="am-g">
     <div class="am-u-lg-12">
-      <h1 class="get-title">南昌大学 <br>北京校友会 </h1>
+      <h1 class="get-title">南昌大学 <br> 北京校友会</h1>
 
       <p>
-        期待你的加入，共创美好未来
+        期待你的加入，共创美好明天
       </p>
 
-      <!-- <p>
-        <a href="http://amazeui.org" class="am-btn am-btn-sm get-btn">获取新get技能√</a>
-      </p> -->
+      <p>
+        <a href="http://amazeui.org" class="am-btn am-btn-sm get-btn">敬请期待</a>
+      </p>
     </div>
   </div>
 </div>
 
 <footer class="footer">
-<p>© 2014 <a href="#" target="_blank">xiazw, Inc.</a></p>
+  <p>© 2015 ncu 北京校友会. by xiazw.</p>
 </footer>
 
+<script src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script>
 </body>
 </html>
