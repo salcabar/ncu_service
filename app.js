@@ -35,10 +35,14 @@ app.use(cookieParser());
 app.use('/preview' , preview);
 app.use('/pages' , pages);
 app.use('/message' , message);
+//app.use('/login', routes);
+//app.use('/home', routes);
+
+
 
 app.use('/tool' , function(req, res, next){
    //res.end('ok')
-   res.render("index",{});
+   res.render("tool",{});
 });
 
 
@@ -47,6 +51,10 @@ app.use('/list' , function(req, res, next){
    //res.end('ok')
    res.render("message",{});
 });
+
+app.use('/', function(req, res, next){
+  res.render("index",{});
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
