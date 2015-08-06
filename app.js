@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var preview =  require('./routes/preview');
 var pages =  require('./routes/pages');
 var message =  require('./routes/message');
+var manage =  require('./routes/manage');
 
 var app = express();
 
@@ -30,23 +31,33 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/preview' , preview);
 app.use('/pages' , pages);
 app.use('/message' , message);
+app.use('/user_manage' , manage);
 
 app.use('/tool' , function(req, res, next){
    //res.end('ok')
-   res.render("index",{});
+   res.render("tool",{});
+});
+
+app.use('/manage' , function(req, res, next){
+   //res.end('ok')
+   res.render("manage",{});
 });
 
 
 app.use('/list' , function(req, res, next){
-   console.log('11333')
    //res.end('ok')
    res.render("message",{});
 });
+
+// app.use('/' , function(req, res, next){
+//    //res.end('ok')
+//    res.render("index",{});
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

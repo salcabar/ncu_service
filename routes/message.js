@@ -4,25 +4,19 @@ var router = express.Router();
 var messageMgr = require('../libs/messageMgr');
 var utils = require('../libs/utils');
 var messageMgr = new messageMgr();
-//得到page列表
-// router.get('/' , function(req, res, next){
+//得到所有数据
+router.get('/all' , function(req, res, next){
+    console.log(11111)
+    var posimise = pageMgr.getAllApps();
+    posimise.then(function(apps){
+        res.json(utils.wrapResponse(1,apps,''))
+    } , function(err){
+        res.json(utils.wrapResponse(0,null,JSON.stringify(error)));
+    }).catch(function(error){
+         res.json(utils.wrapResponse(0,null,JSON.stringify(error)));
+    });
 
-//     var params = {};
-//     params.count = parseInt(req.query.page_count || 10);
-//     params.start = (req.query.page_size || 10) * (req.query.page || 0);
-//     params.order = req.query.order
-//     params.orderby = req.query.orderby
-//     params.user_id = 0;
-//     var posimise = pageMgr.getAllApps(params);
-//     posimise.then(function(apps){
-//         res.json(utils.wrapResponse(1,apps,''))
-//     } , function(err){
-//         res.json(utils.wrapResponse(0,null,JSON.stringify(error)));
-//     }).catch(function(error){
-//          res.json(utils.wrapResponse(0,null,JSON.stringify(error)));
-//     });
-
-// });
+});
 
 /**
  * 通过appid得到app数据

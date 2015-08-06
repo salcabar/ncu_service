@@ -170,6 +170,25 @@ function messageMgr(){
         })
         return deferred.promise;
     }
+
+
+    /**
+     * 得到所有页面
+     */
+    this.getAllDatas = function(){
+        var deferred = Q.defer();
+        var query = "select * from person_info order by id desc";
+        var promise = dao.query(query);
+        promise.then(function(result){
+            //这里需要转换成appInfo对象
+            deferred.resolve(result);
+        } , function(error){
+            deferred.reject(error);
+        }).catch(function(error){
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
 }
 
 module.exports = messageMgr;
